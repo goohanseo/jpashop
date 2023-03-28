@@ -27,7 +27,7 @@ public abstract class Item {
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
-//
+// asdfasdf
     //==비즈니스 로직==//
     /**
      * stock 증가
