@@ -1,5 +1,9 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.domain.Delivery;
+import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,14 +16,11 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ItemService {
-
     private final ItemRepository itemRepository;
-
     @Transactional
     public void saveItem(Item item) {
         itemRepository.save(item);
     }
-
     @Transactional
     public void updateItem(Long itemId, String name, int price, int stockQuantity) {
         Item item = itemRepository.findOne(itemId);
@@ -27,13 +28,35 @@ public class ItemService {
         item.setPrice(price);
         item.setStockQuantity(stockQuantity);
     }
-
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
-
     public Item findOne(Long itemId) {
         return itemRepository.findOne(itemId);
     }
+    //생성메서드
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems){
+        Order order = new Order();
+        order.setMember();
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
